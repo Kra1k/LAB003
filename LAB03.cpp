@@ -1,6 +1,9 @@
 ﻿#include <iostream> 
 #include <vector> 
 #include <string>
+#include "histogram.h"
+#include "svg.h"
+
 
 using namespace std;
 

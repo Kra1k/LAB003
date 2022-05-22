@@ -1,0 +1,5 @@
+﻿  histogram.cpp
+C:\Users\Михаил\Desktop\РПОСУ_LABS\lab03\LAB03\histogram.cpp(2,10): fatal error C1083: Не удается открыть файл включение: hist.h: No such file or directory,
+  test.cpp
+C:\Users\Михаил\Desktop\РПОСУ_LABS\lab03\LAB03\test\test.cpp(1,10): fatal error C1083: Не удается открыть файл включение: hist.h: No such file or directory,
+  Создание кода...

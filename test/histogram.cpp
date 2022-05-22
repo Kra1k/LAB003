@@ -1,5 +1,5 @@
 #include <vector>
-#include "histogram.h"
+#include "hist.h"
 #include <iostream>
 #include <string>
 
