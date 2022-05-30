@@ -1,6 +1,6 @@
 #include "histogram.h"
-#include <cassert>
 
+#include <cassert>
 
 void test_positive()
 {
@@ -43,6 +43,17 @@ void test_zero() {
     assert(max == -1000);
 }
 
+void check_colour_true() {
+    assert(check_color("green") == true);
+    assert(check_color("red") == true);
+    assert(check_color("#010101") == true);
+}
+
+void check_colour_false() {
+    assert(check_color("gre en") == false);
+    assert(check_color("423 255") == false);
+    assert(check_color("") == false);
+}
 
 int main()
 {
@@ -51,5 +62,6 @@ int main()
     test_equal();
     test_solo();
     test_zero();
-
+    check_colour_true();
+    check_colour_false();
 }

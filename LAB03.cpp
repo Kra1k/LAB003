@@ -1,13 +1,8 @@
-﻿#include <iostream> 
-#include <vector> 
-#include <string>
+﻿#include <iostream>
+#include <vector>
 #include "histogram.h"
 #include "svg.h"
-
-
 using namespace std;
-
-
 
 vector<double> input_numbers(size_t cnt)
 {
@@ -18,7 +13,6 @@ vector<double> input_numbers(size_t cnt)
     }
     return result;
 }
-
 
 
 vector<size_t> make_histogram(const vector<double>& numbers, const size_t bin_count)
@@ -90,12 +84,22 @@ void show_histogram_text(const vector<size_t>& bins)
 }
 
 
-
+vector<string> input_colours(size_t bin_count) {
+    vector<string> colours(bin_count);
+    for (int i = 0; i < bin_count; i++) {
+        cerr << "Enter bin " << i + 1 << " colour: ";
+        cin >> colours[i];
+        while (!check_color(colours[i])) {
+            cin >> colours[i];
+        }
+    }
+    return colours;
+}
 
 
 int main()
 {
-    //Ввод данных 
+    //Ввод данных
     size_t number_count;
     cerr << "enter number count: ";
     cin >> number_count;
@@ -105,10 +109,11 @@ int main()
     size_t bin_count;
     cerr << "enter bin count: ";
     cin >> bin_count;
-    //Расчет гистограммы 
+    //Расчет гистограммы
     const auto bins = make_histogram(numbers, bin_count);
-    //Вывод гистограммы 
-    show_histogram_svg(bins);
+    const auto colours = input_colours(bin_count);
+    //Вывод гистограммы
+    show_histogram_svg(bins, colours);
 
     return 0;
 }

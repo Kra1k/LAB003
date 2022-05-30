@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "svg.h"
-#include <string>
 using namespace std;
 
 
@@ -27,12 +26,12 @@ void svg_text(double left, double baseline, string text) {
 }
 
 
-void svg_rect(double x, double y, double width, double height) {
-    cout << "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' />\n";
+void svg_rect(double x, double y, double width, double height, string stroke = "black", string fill = "black") {
+    cout << "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='" << stroke << "' fill='" << fill << "' />\n";
 }
 
 
-void show_histogram_svg(const vector<size_t>& bins)
+void show_histogram_svg(const vector<size_t>& bins, vector<string> colours)
 {
     const auto IMAGE_WIDTH = 400;
     const auto IMAGE_HEIGHT = 300;
@@ -62,7 +61,7 @@ void show_histogram_svg(const vector<size_t>& bins)
         }
         const double bin_width = height;
         svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bins[i]));
-        svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT);
+        svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT, colours[i], colours[i]);
         top += BIN_HEIGHT;
     }
     svg_end();
